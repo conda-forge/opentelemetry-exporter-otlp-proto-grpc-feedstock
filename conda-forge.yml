@@ -3,3 +3,6 @@ bot:
   check_solvable: true
   run_deps_from_wheel: true
 conda_forge_output_validation: true
+github:
+  branch_name: main
+  tooling_branch_name: main

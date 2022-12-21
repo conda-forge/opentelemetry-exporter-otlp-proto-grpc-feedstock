@@ -1,40 +1,32 @@
 {% set name = "opentelemetry-exporter-otlp-proto-grpc" %}
-{% set version = "1.12.0" %}
-
+{% set version = "1.15.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry-exporter-otlp-proto-grpc-{{ version }}.tar.gz
-  sha256: b69a5b080cabcb4e69e5fb27f697def3fb59685b11360fa2db01bea827b9cc97
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_exporter_otlp_proto_grpc-{{ version }}.tar.gz
+  sha256: 844f2a4bb9bcda34e4eb6fe36765e5031aacb36dc60ed88c90fc246942ea26e7
 
 build:
+  script: {{ PYTHON }} -m pip install . -vv
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
+    - python >=3.7
     - pip
-    - python >=3.6
+    - hatchling
   run:
-    - backoff <3.0.0,>=1.10.0
-    - googleapis-common-protos ~=1.52
+    - python >=3.7
+    - backoff <2.0.0,>=1.10.0
+    - googleapis-common-protos >=1.52,<2.dev0
     - grpcio <2.0.0,>=1.0.0
-    - opentelemetry-api ~=1.3
-    - opentelemetry-proto ==1.12.0
-    - opentelemetry-sdk ~=1.11
-    - python >=3.6
-    # - pytest-grpc 
-    # - pytest-grpc 
-    # - pytest-grpc 
-    # - pytest-grpc 
-    # - pytest-grpc 
-    # - pytest-grpc 
-    # - pytest-grpc 
-    # - pytest-grpc 
+    - opentelemetry-api >=1.12,<2.dev0
+    - opentelemetry-proto ==1.15.0
+    - opentelemetry-sdk >=1.12,<2.dev0
 
 test:
   imports:

@@ -27,9 +27,9 @@ requirements:
     - opentelemetry-api ~=1.15
     - opentelemetry-proto ==1.18.0
     - opentelemetry-sdk ~=1.18.0
+    - opentelemetry-exporter-otlp-proto-common ==1.18.0
     # - pytest-grpc 
     # - pytest-grpc 
-    # - opentelemetry-exporter-otlp-proto-common ==1.18.0
     # - deprecated >=1.2.6
 
 test:

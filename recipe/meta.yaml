@@ -28,6 +28,8 @@ requirements:
     - opentelemetry-proto =={{ version }}
     - opentelemetry-sdk =={{ version }}
     - opentelemetry-exporter-otlp-proto-common =={{ version }}
+  # NOTE backoff only required for py<37 but pip checks fails without it
+    - backoff >=1.10.0,<2.0.0
 
 test:
   imports:

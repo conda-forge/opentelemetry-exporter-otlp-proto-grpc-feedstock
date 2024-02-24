@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-exporter-otlp-proto-grpc" %}
-{% set version = "1.22.0" %}
+{% set version = "1.23.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_exporter_otlp_proto_grpc-{{ version }}.tar.gz
-  sha256: 1e0e5aa4bbabc74942f06f268deffd94851d12a8dc30b02527472ef1729fe5b1
+  sha256: aa1a012eea5342bfef51fcf3f7f22601dcb0f0984a07ffe6025b2fbb6d91a2a9
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -50,3 +50,8 @@ extra:
   recipe-maintainers:
     - rxm7706
     - mariusvniekerk
+    - conda-forge/opentelemetry-api
+    - conda-forge/opentelemetry-proto
+    - conda-forge/opentelemetry-sdk
+    - conda-forge/opentelemetry-exporter-otlp-proto-common
+

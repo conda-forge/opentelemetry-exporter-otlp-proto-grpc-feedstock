@@ -54,4 +54,3 @@ extra:
     - conda-forge/opentelemetry-proto
     - conda-forge/opentelemetry-sdk
     - conda-forge/opentelemetry-exporter-otlp-proto-common
-

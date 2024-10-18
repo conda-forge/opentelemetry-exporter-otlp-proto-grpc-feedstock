@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -23,7 +23,7 @@ requirements:
     - python >=3.8
     - deprecated >=1.2.6
     - googleapis-common-protos >=1.52,<2.0
-    - grpcio >=1.0.0,<2.0.0
+    - libgrpc >=1.0.0,<2.0.0
     - opentelemetry-api >={{ version }},<2.0
     - opentelemetry-proto =={{ version }}
     - opentelemetry-sdk =={{ version }}

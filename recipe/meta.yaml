@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 2
 
 requirements:
   host:
@@ -25,9 +25,9 @@ requirements:
     - googleapis-common-protos >=1.52,<2.dev0
     - grpcio >=1.63.2,<2.0.0
     - opentelemetry-api >=1.15,<2.dev0
-    - opentelemetry-proto ==1.28.2
-    - opentelemetry-sdk >=1.28.2,<1.29.dev0
-    - opentelemetry-exporter-otlp-proto-common ==1.28.2
+    - opentelemetry-proto =={{ version }}
+    - opentelemetry-sdk >={{ version }},<1.29.dev0
+    - opentelemetry-exporter-otlp-proto-common =={{ version }}
   # NOTE backoff only required for py<37 but pip checks fails without it
     #- backoff >=1.10.0,<3.0.0
 

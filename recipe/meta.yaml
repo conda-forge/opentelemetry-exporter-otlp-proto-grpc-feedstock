@@ -1,5 +1,5 @@
 {% set name = "opentelemetry-exporter-otlp-proto-grpc" %}
-{% set version = "1.32.0" %}
+{% set version = "1.32.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentelemetry_exporter_otlp_proto_grpc-{{ version }}.tar.gz
-  sha256: c069c5d5f429a46fb1001f38191730939f593789c847648e4cea26dc8b6018a8
+  sha256: e01157104c9f5d81fb404b66db0653a75ec606754445491c831301480c2a3950
 
 build:
   noarch: python
@@ -25,9 +25,9 @@ requirements:
     - googleapis-common-protos ~=1.52
     - grpcio <2.0.0,>=1.66.2
     - opentelemetry-api ~=1.15
-    - opentelemetry-proto ==1.32.0
-    - opentelemetry-sdk ~=1.32.0
-    - opentelemetry-exporter-otlp-proto-common ==1.32.0
+    - opentelemetry-proto ==1.32.1
+    - opentelemetry-sdk ~=1.32.1
+    - opentelemetry-exporter-otlp-proto-common ==1.32.1
   # NOTE backoff only required for py<37 but pip checks fails without it
     #- backoff >=1.10.0,<3.0.0
 

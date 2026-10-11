@@ -1,0 +1,61 @@
+schema_version: 1
+
+context:
+  name: opentelemetry-exporter-otlp-proto-grpc
+  version: "1.45.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/opentelemetry_exporter_otlp_proto_grpc-${{ version }}.tar.gz
+  sha256: 7888c2d57b4437cdd879fe250455065ec716a3862f3eb17b850cbfe134aeb181
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - hatchling
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - deprecated >=1.2.6
+    - googleapis-common-protos ~=1.57
+    - grpcio <2.0.0,>=1.75.1
+    - opentelemetry-api ~=1.15
+    - opentelemetry-proto ${{ version }}.*
+    - opentelemetry-sdk ${{ version }}.*
+    - opentelemetry-exporter-otlp-proto-common ${{ version }}.*
+    - opentelemetry-exporter-otlp-common 0.66b0.*
+
+tests:
+  - python:
+      imports:
+        - opentelemetry
+        - opentelemetry.exporter
+        - opentelemetry.exporter.otlp.proto.grpc
+      pip_check: true
+      python_version: 
+       - ${{ python_min }}.*
+       - '*'
+
+about:
+  summary: OpenTelemetry Collector Protobuf over gRPC Exporter
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://github.com/open-telemetry/opentelemetry-python/tree/main/exporter/opentelemetry-exporter-otlp-proto-grpc
+
+extra:
+  recipe-maintainers:
+    - rxm7706
+    - mariusvniekerk
+    - xhochy
+    - conda-forge/opentelemetry-api
+    - conda-forge/opentelemetry-proto
+    - conda-forge/opentelemetry-sdk
+    - conda-forge/opentelemetry-exporter-otlp-proto-common

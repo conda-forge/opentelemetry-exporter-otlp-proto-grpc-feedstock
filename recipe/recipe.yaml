@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: opentelemetry-exporter-otlp-proto-grpc
-  version: 1.45.1
+  version: 1.45.2
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/opentelemetry_exporter_otlp_proto_grpc-${{ version }}.tar.gz
-  sha256: 3b3dcfbfdcb4e35149fcf309972282054b45228f5c10547d0095d6578510a9a0
+  sha256: 9e4a6490ca7711479fec7c519425bc09808abbc9a2a1775528edecf200d19a5a
 
 build:
   number: 0
@@ -30,11 +30,13 @@ requirements:
     - opentelemetry-proto ${{ version }}.*
     - opentelemetry-sdk ${{ version }}.*
     - opentelemetry-exporter-otlp-proto-common ${{ version }}.*
-    - opentelemetry-exporter-otlp-common ==0.66b1
+    - opentelemetry-exporter-otlp-common ==0.66b2
     - opentelemetry-exporter-otlp-proto-common ==1.45.1
     - typing_extensions >=4.6.0
     - opentelemetry-proto ==1.45.1
-    - opentelemetry-sdk >=1.45.1,<1.46.dev0
+    - opentelemetry-sdk >=1.45.2,<1.46.dev0
+    - opentelemetry-exporter-otlp-proto-common ==1.45.2
+    - opentelemetry-proto ==1.45.2
 tests:
   - python:
       imports:
